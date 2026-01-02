@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 04:01:44 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/01 22:34:15 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/02 21:56:50 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,36 @@
 
 class Bureaucrat {
 	private :
-		std::string _Name;
-		std::string _Grade;
+		std::string	_Name;
+		int			_Grade;
 
 	public :
-		std::string getName();
-		std::string getGrade();
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(const Bureaucrat& other);
+		Bureaucrat& operator=(const Bureaucrat &other);
+		~Bureaucrat();
 
-	class GradeTooHighException : public std::exception {
-		//thow = 0
-	};
+		std::string getName() const;
+		int getGrade() const;
+		void incrementGrade();
+		void decrementGrade();
+
+		class GradeTooHighException : public std::exception {
+			public : 
+				virtual const char* what() const throw(){
+					return ("Error : Grade too high");
+				}
+		};
+		
+		class GradeTooLowException : public std::exception {
+			public :
+				virtual const char* what() const throw(){
+					return ("Error : Grade too low");
+				}
+		};
 };
 
-//voir les videos
 
 //en parametre : os stream & instance de classe 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& object);

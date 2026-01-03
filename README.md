@@ -29,50 +29,42 @@ Each module introduces new concepts and builds upon the previous ones.
 <h2> ♦ Modules ♦</h2>
 
 | Module | Main Concepts | Status |
-|------|---------------|----------|
-| CPP05 | ... | WIP |
-| CPP06 | ... | ... |
-| CPP07 | ... | ... |
-| CPP08 | ... | ... |
-| CPP09 | ... | ... |
+|------|---------------|--------|
+| CPP05 | Exceptions, abstract classes, inheritance, polymorphism | WIP |
+| CPP06 | Type casting, reinterpret/static/dynamic cast, serialization | ... |
+| CPP07 | Templates, generic programming | ... |
+| CPP08 | STL containers, iterators, algorithms | ... |
+| CPP09 | Advanced STL, containers adaptors, algorithms, real use cases | ... |
 
 ---
 
 <h2> ♦ Project Structure ♦</h2>
 
 ```
-CPP00-04/
-├── CPP05/              
-│  ├── ex00/            # 
-│  ├── ex01/            # 
-│  ├── ex02/            # 
+CPP05/
+├── ex00/ # Bureaucrat class, exceptions & grade handling
+├── ex01/ # Form class, interaction with Bureaucrat
+├── ex02/ # Abstract forms & concrete implementations
 │
-├── CPP06/              
-│  ├── ex00/            # 
-│  ├── ex01/            # 
-│  ├── ex02/            # 
-│  ├── ex03/            # 
-│  ├── ex04/            # 
-│  ├── ex05/            # 
-│  ├── ex06/            # 
+CPP06/
+├── ex00/ # Scalar type conversion
+├── ex01/ # Serialization (uintptr_t)
+├── ex02/ # Runtime type identification
 │
-├── CPP07/              
-│  ├── ex00/            # 
-│  ├── ex01/            # 
-│  ├── ex02/            # 
-│  ├── ex03/            # 
+CPP07/
+├── ex00/ # Template functions
+├── ex01/ # Iter template
+├── ex02/ # Template array class
 │
-├── CPP08/              
-│  ├── ex00/            # 
-│  ├── ex01/            # 
-│  ├── ex02/            # 
-│  ├── ex03/            # 
+CPP08/
+├── ex00/ # Easy find (STL algorithm)
+├── ex01/ # Span (range and distance)
+├── ex02/ # MutantStack (iterator on stack)
 │
-├── CPP09/              
-│  ├── ex00/            # 
-│  ├── ex01/            # 
-│  ├── ex02/            # 
-│  ├── ex03/            # 
+CPP09/
+├── ex00/ # Bitcoin exchange (map & parsing)
+├── ex01/ # Reverse Polish Notation
+├── ex02/ # Merge-insert sort (Ford-Johnson)
 
 
 ```
@@ -98,4 +90,9 @@ make
 ./SedIsForLosers  file.txt "this" "that"
 ```
 
+<h2> ♦ Coding Standards ♦</h2>
 
+- C++98 compliant
+- No memory leaks (checked with Valgrind)
+- Clear separation between headers and sources
+- Respect of the 42 Norm and subject constraints

@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 17:38:51 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 17:43:47 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/04 20:40:23 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 // In all cases, the base class Form must be an abstract class and should therefore be
 // renamed AForm. Keep in mind that the form’s attributes need to remain private and
 // that they belong to the base class.
+
+// Now, add the execute(Bureaucrat const & executor) const member function to
+// the base form and implement a function to execute the form’s action in the concrete
+// classes. You must check that the form is signed and that the grade of the bureaucrat 
+// attempting to execute the form is high enough. Otherwise, throw an appropriate exception.
 
 
 class AForm{
@@ -41,7 +46,9 @@ class AForm{
 		int getSignGrade( void ) const;
 		bool getIsSigned( void ) const;
 		std::string getName( void ) const;
-		void beSigned(const Bureaucrat& obj);
+		void beSigned(const Bureaucrat& obj) const;
+        virual void execute(const Bureaucrat& obj) const = 0;
+
 	
 		class GradeTooHighException : public std::exception {
 			public : 
@@ -54,6 +61,13 @@ class AForm{
 			public :
 				virtual const char* what() const throw(){
 					return ("Error : Grade too low");
+				}
+		};
+
+        class FormNotSignedException : public std::exception {
+			public :
+				virtual const char* what() const throw(){
+					return ("Error : Form not signed");
 				}
 		};
 } ;

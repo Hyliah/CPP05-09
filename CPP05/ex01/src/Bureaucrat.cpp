@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 20:55:53 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 17:34:34 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/04 18:50:31 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void Bureaucrat::decrementGrade(){
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form& form){
+void Bureaucrat::signForm(Form& form) const{
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;

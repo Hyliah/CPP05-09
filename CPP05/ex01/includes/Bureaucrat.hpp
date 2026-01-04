@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 20:55:36 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 17:33:57 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/04 18:50:19 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat {
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-        void signForm(Form& form);
+        void signForm(Form& form) const;
 
 		class GradeTooHighException : public std::exception {
 			public : 

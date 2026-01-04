@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 17:41:21 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 17:41:23 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/04 20:30:00 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ bool AForm::getIsSigned( void ) const{
 
 // ----- member functions ---------
 
-void AForm::beSigned(const Bureaucrat& obj){
+void AForm::beSigned(const Bureaucrat& obj) const {
 	if (obj.getGrade() > this->getSignGrade())
 		throw AForm::GradeTooLowException();
 	_isSigned = true;
 }
+
+// void AForm::execute(const Bureaucrat& obj) const{
+// }
 
 // -------- operator << ----------
 

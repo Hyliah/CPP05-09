@@ -6,32 +6,32 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 20:55:53 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 01:12:11 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:34:34 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat() : _Name("default"), _Grade(150){
+Bureaucrat::Bureaucrat() : _name("default"), _grade(150){
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _Name(name), _Grade(grade){
-	if (_Grade < 1)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade){
+	if (_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	if (_Grade > 150)
+	if (_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other){
-	_Grade = other._Grade;
-	_Name = other._Name;
+	_grade = other._grade;
+	_name = other._name;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other){
 	if (this != &other){
-		_Grade = other._Grade;
-		_Name = other._Name;
+		_grade = other._grade;
+		_name = other._name;
 	}
 	return (*this);
 }
@@ -40,32 +40,32 @@ Bureaucrat::~Bureaucrat(){
 }
 
 std::string Bureaucrat::getName() const{
-	return (_Name);
+	return (_name);
 }
 
 int Bureaucrat::getGrade() const{
-	return (_Grade);
+	return (_grade);
 }
 
 void Bureaucrat::incrementGrade(){
-	_Grade--;
-	if (_Grade < 1)
+	_grade--;
+	if (_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade(){
-	_Grade++;
-	if (_Grade > 150)
+	_grade++;
+	if (_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
 
 void Bureaucrat::signForm(Form& form){
 	try {
-		form::beSigned(*this);
+		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
-	catch (exception &e){
-		std::cout << _name " couldn’t sign " << form.getName() << " because " e.what() << "." << std::endl;
+	catch (std::exception &e){
+		std::cout << _name << " couldn’t sign " << form.getName() << " because " << e.what() << "." << std::endl;
 	}
 }
 

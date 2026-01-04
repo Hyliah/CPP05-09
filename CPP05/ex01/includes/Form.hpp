@@ -6,14 +6,13 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 20:56:13 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 00:09:26 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:30:30 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <exception>
-
-class Bureaucrat;
+#include "Bureaucrat.hpp"
 
 #ifndef FORM_HPP
 # define FORM_HPP
@@ -32,11 +31,11 @@ class Form{
 		Form& operator=(const Form &other);
 		~Form();
 
-		int getSign( void ) const;
-		int getGrade( void ) const;
-		bool getSigned( void ) const;
+		int getExecGrade( void ) const;
+		int getSignGrade( void ) const;
+		bool getIsSigned( void ) const;
 		std::string getName( void ) const;
-		void beSigned(Bureaucrat& obj);
+		void beSigned(const Bureaucrat& obj);
 	
 		class GradeTooHighException : public std::exception {
 			public : 

@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 20:55:36 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 00:06:17 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:33:57 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Form;
 
 class Bureaucrat {
 	private :
-		std::string	_Name;
-		int			_Grade;
+		std::string	_name;
+		int			_grade;
 
 	public :
 		Bureaucrat();

@@ -6,12 +6,13 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 21:53:14 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/02 22:12:11 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/07 21:19:01 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+// try and catch in the main -> end the program if there s a catch
 int main(){
 
 	// ---------- TOO LOW in initialization -------

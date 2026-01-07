@@ -7,7 +7,7 @@ INCLUDES    = -I includes
 
 OBJ_DIR     = obj
 
-SRC         = main.cpp src/AForm.cpp src/Bureaucrat.cpp Intern.cpp \
+SRC         = main.cpp src/AForm.cpp src/Bureaucrat.cpp src/Intern.cpp \
 				src/PresidentialPardonForm.cpp src/RobotomyRequestForm.cpp \
 				src/ShrubberyCreationForm.cpp
 

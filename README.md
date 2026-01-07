@@ -42,9 +42,10 @@ Each module introduces new concepts and builds upon the previous ones.
 
 ```
 CPP05/
-├── ex00/ # Bureaucrat class, exceptions & grade handling
-├── ex01/ # Form class, interaction with Bureaucrat
-├── ex02/ # Abstract forms & concrete implementations
+├── ex00/ # Bureaucrat : Bureaucrat class, exceptions & grade handling
+├── ex01/ # FormUp : Form class, interaction with Bureaucrat
+├── ex02/ # Form28B : Abstract forms & concrete implementations
+├── ex03/ # CoffeeMaking : Function pointers
 │
 CPP06/
 ├── ex00/ # Scalar type conversion
@@ -86,8 +87,8 @@ exemple :
 
 ```bash
 make
-./SedIsForLosers  ready to use. Enter a file and two occurences (S1 & S2)
-./SedIsForLosers  file.txt "this" "that"
+./Bureaucrat  ready to use. 
+./Bureaucrat
 ```
 
 <h2> ♦ Coding Standards ♦</h2>

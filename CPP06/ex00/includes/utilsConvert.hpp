@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   utilsConvert.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 00:07:49 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/08 20:18:50 by hlichten         ###   ########.fr       */
+/*   Created: 2026/01/08 21:16:14 by hlichten          #+#    #+#             */
+/*   Updated: 2026/01/08 21:43:35 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef UTILSCONVERT_HPP
+# define UTILSCONVERT_HPP
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
-
-class ScalarConverter {
-    public :
-        static void convert(std::string entry);
-};
+void convertChar(int c);
+void convertInt(std::string *entry);
+void convertDecimal(std::string *entry);
 
 #endif

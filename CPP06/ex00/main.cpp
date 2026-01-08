@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 00:08:58 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/08 01:30:16 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/08 20:09:06 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int main (int ac, char **av)
         return (1);
     }
     
-    ScalarConverter.convert(av[1]);
+    std::string entry = av[1];
+    ScalarConverter::convert(entry);
     return (0);
 }
 

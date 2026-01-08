@@ -7,7 +7,7 @@ INCLUDES    = -I includes
 
 OBJ_DIR     = obj
 
-SRC         = main.cpp src/name
+SRC         = main.cpp src/ScalarConverter.cpp src/utilsSpecials.cpp src/utilsConvert.cpp
 
 OBJ         = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 

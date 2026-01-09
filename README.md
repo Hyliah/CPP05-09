@@ -48,7 +48,7 @@ CPP05/
 ├── ex03/ # CoffeeMaking : Function pointers
 │
 CPP06/
-├── ex00/ # Scalar type conversion
+├── ex00/ # convert : Scalar type conversion
 ├── ex01/ # Serialization (uintptr_t)
 ├── ex02/ # Runtime type identification
 │

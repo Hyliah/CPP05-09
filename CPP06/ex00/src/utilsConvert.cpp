@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 21:15:39 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/08 22:02:42 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:42:58 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,59 +18,48 @@
 #include <cstdlib>
 #include <stdlib.h>
 
-void convertInt(std::string *entry){
-    bool sNotation = false;
-    if (entry->length() > 6)
-        sNotation = true;
-	//c_str() -> convert std::string to char*
-	// str to ll -> beg of char*, end of char* , base 
-	char* end;
-	long long llongNB = strtoll(entry->c_str(), &end, 10);
+void convertRest(const std::string &entry)
+{
+    char *end;
+    double value = std::strtod(entry.c_str(), &end);
 
-    //erno pcq ca met que les plus gros possible
-
-	//empty string or weird characters:
-	if (end == entry->c_str() || *end != '\0')
-		return (sendWord());
-
-	//char 
-	if (llongNB >= 0 && llongNB < 32)
-		std::cout << "char: non displayable" << std::endl;
-	else if (llongNB >= 32 && llongNB <= 126)
-		std::cout << "char: '" << static_cast<unsigned char>(llongNB) << "'" << std::endl;
-	else
-		std::cout << "char: impossible" << std::endl;
-
-	//int
-	if (llongNB <= INT_MAX && llongNB >= INT_MIN)
-		std::cout << "int: " << llongNB << std::endl;
-	else
-		std::cout << "int : impossible" << std::endl;
-	
-	//float
-	if (llongNB <= FLT_MAX && llongNB >= -FLT_MAX){
-        if (sNotation == false)
-		    std::cout << "float: " << static_cast<float>(llongNB) << ".0f" << std::endl;
-        else
-            std::cout << "float: " << static_cast<float>(llongNB) << "f" << std::endl;
+    // verification
+    if (*end != '\0' && !(end[0] == 'f' && end[1] == '\0'))
+    {
+        sendWord();
+        return;
     }
-	else if (llongNB > FLT_MAX)
-		std::cout << "float: +inff" << std::endl;
-	else
-		std::cout << "float: -inff" << std::endl;
 
-	//double
-	if (llongNB <= DBL_MAX && llongNB >= -DBL_MAX){
-        if (sNotation == false)
-		    std::cout << "double: " << static_cast<double>(llongNB) << ".0"<< std::endl;
-        else
-            std::cout << "double: " << static_cast<double>(llongNB) << std::endl;
-    }
-	else if (llongNB > DBL_MAX)
-		std::cout << "double: +inff" << std::endl;
-	else
-		std::cout << "double: -inff" << std::endl;	
+    // CHAR
+    if (std::isnan(value) || std::isinf(value) || value < 0 || value > 127)
+        std::cout << "char: impossible\n";
+    else if (!isprint(static_cast<char>(value)))
+        std::cout << "char: Non displayable\n";
+    else
+        std::cout << "char: '" << static_cast<char>(value) << "'\n";
+
+    // INT
+    if (std::isnan(value) || std::isinf(value) ||
+        value < std::numeric_limits<int>::min() ||
+        value > std::numeric_limits<int>::max())
+        std::cout << "int: impossible\n";
+    else
+        std::cout << "int: " << static_cast<int>(value) << "\n";
+
+    // FLOAT
+    float f = static_cast<float>(value);
+    std::cout << "float: " << f;
+    if (f == static_cast<int>(f))
+        std::cout << ".0";
+    std::cout << "f\n";
+
+    // DOUBLE
+    std::cout << "double: " << value;
+    if (value == static_cast<int>(value))
+        std::cout << ".0";
+    std::cout << "\n";
 }
+
 
 void convertChar(int c){
 
@@ -85,44 +74,4 @@ void convertChar(int c){
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
 	//double
 	std::cout << "double: " << static_cast<double>(c) << ".0"<< std::endl;
-}
-
-void convertDecimal(std::string *entry){
-	char* end;
-	double dblNB = strtod(entry->c_str(), &end);
-
-	if (end == entry->c_str() || *end != '\0')
-		return (sendWord());
-
-	//char 
-	if (static_cast<int>(dblNB) >= 0 && static_cast<int>(dblNB) < 32)
-		std::cout << "char: non displayable" << std::endl;
-	else if (static_cast<int>(dblNB) >= 32 && static_cast<int>(dblNB) <= 126)
-		std::cout << "char: '" << static_cast<unsigned char>(dblNB) << "'" << std::endl;
-	else
-		std::cout << "char: impossible" << std::endl;
-
-	//int
-	if (dblNB <= INT_MAX && dblNB >= INT_MIN)
-		std::cout << "int: " << static_cast<int>(dblNB) << std::endl;
-	else
-		std::cout << "int : impossible" << std::endl;
-	
-	//float
-    if (std::isnan(dblNB))
-        std::cout << "float: nanf" << std::endl;
-    else if (std::isinf(dblNB))
-        std::cout << "float: " << (dblNB > 0 ? "+inff" : "-inff") << std::endl;
-    else{
-        if (dblNB == static_cast<long long>(dblNB))
-            std::cout << "float: " << dblNB << ".0f" << std::endl;
-        else
-            std::cout << "float: " << dblNB << "f" << std::endl;
-    }
-
-	//double
-	if (dblNB == static_cast<long long>(dblNB))
-        std::cout << "double: " << dblNB << ".0" << std::endl;
-    else
-        std::cout << "double: " << dblNB << std::endl;
 }

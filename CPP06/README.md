@@ -72,6 +72,13 @@ make
 
 <h2>♦ Personal Notes ♦</h2>
 
+<p>[CPP06 : CPP casts]</p>
+<img src="ASSETS/Casts.png" width="90%" alt="CPP06 : CPP casts">
+
+CPP - Homemade HelpCenter : 
+<a href="https://www.figma.com/board/YLwrD2ZJmG2QEYdvLQ85o0/CPP_help-center?node-id=0-1&t=rvW7b2dDy1z6ygfJ-1">CPP HelpCenter</a>
+
+
 ---
 
 <h2>♦ Ressorces ♦</h2>

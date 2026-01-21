@@ -1,4 +1,6 @@
 <!-- README.md -->
+<p>This project has been created as part of the 42 curriculum by hlichten. </p>
+
 <h1 align="center">
   CPP05
 </h1>
@@ -17,7 +19,7 @@
 
 ---
 
-<h2>♦ Objective ♦</h2>
+<h2>♦ Objective / Description♦</h2>
 
 The goal of this module is to introduce and practice **exception handling** and reinforce knowledge of **inheritance, abstract classes, and operator (`<<`) overloading**.  
 The idea is to implement a bureaucracy simulation with **forms, bureaucrats, and interns**.
@@ -55,13 +57,26 @@ exemple :
 
 ```bash
 make
-./Burreaucrat  ready to use.
-./Burreaucrat
+./FormUp  ready to use.
+./FormUp
 ```
 
 ---
 
 <h2>♦ Personal Notes ♦</h2>
+
+---
+
+<h2>♦ Ressorces ♦</h2>
+Peer learning is a major part of the 42 experience.
+Additional learning sources included:
+
+- 42 Intra videos
+- Official C++ documentation
+- Discussions with peers
+
+AI tools were used only to answer conceptual questions and help with debugging typos or logic issues,
+not to generate the project code.
 
 ---
 

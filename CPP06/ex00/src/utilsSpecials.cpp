@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 01:27:23 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/08 21:55:23 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/21 23:58:37 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void sendNan( void ){
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	std::cout << "float: nanf" << std::endl;
-	std::cout << "double: NaN" << std::endl;
+	std::cout << "double: nan" << std::endl;
 }
 
 void sendNanf( void ){
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
 	std::cout << "float: nanf" << std::endl;
-	std::cout << "double: NaN" << std::endl;
+	std::cout << "double: nan" << std::endl;
 }
 
 void sendinffp( void ){

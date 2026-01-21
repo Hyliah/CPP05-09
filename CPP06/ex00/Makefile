@@ -15,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CXX) $(CXXFLAGS) $(INCLUDES) $(OBJ) -o $(NAME)
-	@echo "\033[0;35m ./$(NAME) \033[0m ready to use."
+	@echo "\033[0;35m ./$(NAME) \033[0m ready to use. Enter a string to convert."
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)

@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 00:07:52 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/21 18:41:11 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:46:18 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void ScalarConverter::convert(std::string entry){
 		return (convertChar(entry[0]));
 	}
 	
+	//step 3 : send convert
 	convertRest(entry);
 }

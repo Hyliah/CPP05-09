@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 21:15:39 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/21 18:42:58 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:46:55 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,18 @@ void convertRest(const std::string &entry)
 
 void convertChar(int c){
 
-	//char 
+	//CHAR
 	if ((c > 0 && c < 32) || c == 127)
 		std::cout << "char: non displayable" << std::endl;
 	else 
 		std::cout << "char: '" << static_cast<unsigned char>(c) << "'" << std::endl;
-	//int
+
+	//INT
 	std::cout << "int: " << c << std::endl;
-	//float
+
+	//FLOAT
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
-	//double
+
+	//DOUBLE
 	std::cout << "double: " << static_cast<double>(c) << ".0"<< std::endl;
 }

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 20:15:38 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/22 21:04:08 by hlichten         ###   ########.fr       */
+/*   Created: 2026/01/22 20:19:38 by hlichten          #+#    #+#             */
+/*   Updated: 2026/01/22 20:21:18 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef C_HPP
+# define C_HPP
 
-int main(){
-    std::srand(std::time(NULL));
+class C : public Base{
+};
 
-    return 0;
-}
+//Implement a Base class that has a public virtual destructor only. Create three empty
+//classes A, B, and C, that publicly inherit from Base.
+#endif

@@ -6,14 +6,12 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:53:40 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/23 16:10:10 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:13:28 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DynCastFunc.hpp"
 
-// It randomly instantiates A, B, or C and returns the instance as a Base pointer. Feel free
-// to use anything you like for the random choice implementation.
 Base * generate(void){
 	int r = std::rand() % 3 + 1;
 	switch (r)
@@ -30,7 +28,6 @@ Base * generate(void){
 	}
 }
 		
-//It prints the actual type of the object pointed to by p: "A", "B", or "C".
 void identify(Base* p){
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
@@ -40,8 +37,6 @@ void identify(Base* p){
 		std::cout << "C" << std::endl;
 }
 		
-// It prints the actual type of the object referenced by p: "A", "B", or "C". Using a pointer
-// inside this function is forbidden.
 void identify(Base& p){
 
 	try {
@@ -53,17 +48,17 @@ void identify(Base& p){
 	catch (...) {} //in this case we could use std::bad_cast
 
 	try {
-        B& b = dynamic_cast<B&>(p); // if error -> catched 
-        (void)b; //avoid warning
-        std::cout << "B" << std::endl; // if no error -> print and leave
+        B& b = dynamic_cast<B&>(p);
+        (void)b;
+        std::cout << "B" << std::endl;
         return;
 	}
 	catch (...) {}
 
 	try {
-        C& c = dynamic_cast<C&>(p); // if error -> catched 
-        (void)c; //avoid warning
-        std::cout << "C" << std::endl; // if no error -> print and leave
+        C& c = dynamic_cast<C&>(p);
+        (void)c;
+        std::cout << "C" << std::endl;
         return;
 	}
 	catch (...) {}

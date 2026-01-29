@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 21:53:14 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/07 21:19:01 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/29 16:23:24 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ int main(){
 	// --------- TOO LOW because of a decrementation ---------
 
 	try {
-		Bureaucrat Nicolas("Nicolas", 139);
-		std::cout << Nicolas << std::endl;
+		Bureaucrat John("John", 139);
+		std::cout << John << std::endl;
 
 		for (int i = 0; i < 40 ; i++){
-			Nicolas.decrementGrade();
-			std::cout << Nicolas << std::endl;
+			John.decrementGrade();
+			std::cout << John << std::endl;
 		}
 	}
 	catch (std::exception &e) {

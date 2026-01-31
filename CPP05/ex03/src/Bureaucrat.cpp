@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:23:03 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/07 21:24:12 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 03:08:33 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ int Bureaucrat::getGrade() const{
 }
 
 void Bureaucrat::incrementGrade(){
-	_grade--;
-	if (_grade < 1)
+	if ((_grade - 1) < 1)
 		throw Bureaucrat::GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade(){
-	_grade++;
-	if (_grade > 150)
+	if ((_grade + 1) > 150)
 		throw Bureaucrat::GradeTooLowException();
+	_grade++;
 }
 
 void Bureaucrat::signForm(AForm& form){

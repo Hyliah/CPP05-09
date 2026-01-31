@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 04:01:39 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/02 22:05:49 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 02:50:20 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ int Bureaucrat::getGrade() const{
 }
 
 void Bureaucrat::incrementGrade(){
-	_Grade--;
-	if (_Grade < 1)
+	if ((_Grade - 1) < 1)
 		throw Bureaucrat::GradeTooHighException();
+	_Grade--;
 }
 
 void Bureaucrat::decrementGrade(){
-	_Grade++;
-	if (_Grade > 150)
+	if ((_Grade + 1) > 150)
 		throw Bureaucrat::GradeTooLowException();
+	_Grade++;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& object) {

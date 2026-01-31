@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 23:02:01 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/07 23:31:34 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 03:15:48 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int main() {
 
     std::cout << "\n===== INTERN CREATES FORMS =====\n\n";
 
-    AForm* f1 = someRandomIntern.makeForm("robotomy request", "Bender");
+    AForm* f1 = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
     std::cout << *f1 << std::endl;
     std::cout << "---" << std::endl;
-    AForm* f2 = someRandomIntern.makeForm("presidential pardon", "Arthur Dent");
+    AForm* f2 = someRandomIntern.makeForm("PresidentialPardonForm", "Arthur Dent");
     std::cout << *f2 << std::endl;
     std::cout << "---" << std::endl;
-    AForm* f3 = someRandomIntern.makeForm("shrubbery creation", "Home");
+    AForm* f3 = someRandomIntern.makeForm("ShrubberyCreationForm", "Home");
     std::cout << *f3 << std::endl;
     std::cout << "---" << std::endl;
     AForm* f4 = someRandomIntern.makeForm("unknown form", "Nobody");

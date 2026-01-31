@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 21:29:22 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/04 17:41:06 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 02:54:17 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 Form::Form() : _name("default"), _isSigned(false), _signGrade(150), _execGrade(150){
 }
 
+// if throwed, the object is not created
 Form::Form(std::string name, int sign, int exec) : _name(name), _isSigned(false), _signGrade(sign), _execGrade(exec){
 	if (_signGrade < 1 || _execGrade < 1)
 		throw Form::GradeTooHighException();
@@ -28,7 +29,6 @@ Form::Form(const Form &other) : _name(other._name), _signGrade(other._signGrade)
 	_isSigned = other._isSigned;
 }
 
-// const atttributes can t be reasign
 Form& Form::operator=(const Form &other){
 	if (this != &other){
 		_isSigned = other._isSigned;

@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 21:45:09 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/07 23:24:18 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 03:16:55 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,11 @@ AForm* shrubbery(std::string name){
 }
 
 AForm* Intern::makeForm(std::string formName, std::string target){
-	static const char *tab[3] = {"shrubbery", "robotomy", "presidential"};
+	static const char *tab[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
 	AForm* (*p[3])(std::string) = {shrubbery, robotomy, presidential};
 	
-	std::string lowName = formName;
-	std::transform(lowName.begin(), lowName.end(), lowName.begin(), ::tolower);
-	
 	for (int i = 0; i < 3 ; i++){
-		if (lowName.find(tab[i]) != std::string::npos){
+		if (formName.find(tab[i]) != std::string::npos){
 			std::cout << "Intern creates " << formName << std::endl;
 			return (p[i](target));
 		}

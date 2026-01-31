@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 17:41:21 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/07 21:25:52 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 03:01:44 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ AForm::AForm(std::string name, int sign, int exec) : _name(name), _isSigned(fals
 
 AForm::AForm(const AForm &other) : _name(other._name), _signGrade(other._signGrade), _execGrade(other._execGrade){
 	_isSigned = other._isSigned;
+	//isnt const
 }
 
 // const atttributes can t be reasign
@@ -68,6 +69,7 @@ void AForm::beSigned(const Bureaucrat& obj) {
 	_isSigned = true;
 }
 
+// virutal pure, will be written in the childs
 // void AForm::execute(const Bureaucrat& obj) const{
 // }
 

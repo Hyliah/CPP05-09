@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 04:01:44 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/02 21:56:50 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 02:39:39 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ class Bureaucrat {
 		};
 };
 
-
-//en parametre : os stream & instance de classe 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& object);
-
-//classes
-//a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException
 
 #endif

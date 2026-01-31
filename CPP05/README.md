@@ -1,5 +1,5 @@
 <!-- README.md -->
-<p>This project has been created as part of the 42 curriculum by hlichten. </p>
+<p><i>This project has been created as part of the 42 curriculum by hlichten. </i></p>
 
 <h1 align="center">
   CPP05
@@ -64,6 +64,20 @@ make
 ---
 
 <h2>♦ Personal Notes ♦</h2>
+
+Exception classes are used to signal, propagate, and explain errors in C++.
+They work with try, catch, and throw.
+An exception thrown during a constructor aborts the object creation.
+An exception thrown inside a member function does not undo previous changes.
+Therefore, checks must always be done before modifying the object state.
+
+<p>[Exception Classes]</p>
+<img src="ASSETS/exception_classes.png" width="90%" alt="ex03 : Exception classes">
+
+CPP - Homemade HelpCenter : 
+<a href="https://www.figma.com/board/YLwrD2ZJmG2QEYdvLQ85o0/CPP_help-center?node-id=0-1&t=rvW7b2dDy1z6ygfJ-1">CPP HelpCenter</a>
+
+
 
 ---
 

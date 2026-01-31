@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 00:07:52 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/21 18:46:18 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:49:00 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 #include <cstdlib>
 #include <stdlib.h>
 
+std::string lower(std::string str);
+
 void ScalarConverter::convert(std::string entry){
 
-	std::string entryCopy = entry;
+	std::string entryCopy = lower(entry);
 	// step 1 : check for special words
-	std::transform(entryCopy.begin(), entryCopy.end(), entryCopy.begin(), ::tolower);
 	static const char * tab[6] = {"nan", "nanf", "+inff", "-inff", "+inf", "-inf"};
 	void (*p[6])( void ) = {sendNan, sendNanf, sendinffp, sendinffn, sendinfp, sendinfn};
 
@@ -38,4 +39,15 @@ void ScalarConverter::convert(std::string entry){
 	
 	//step 3 : send convert
 	convertRest(entry);
+}
+
+std::string lower(std::string str){
+	std::string result;
+
+	result = str;
+	for (size_t i = 0 ; i < result.length() ; i++){
+		if (result[i] >= 'A' && result[i] <= 'Z')
+			result[i] += 32;
+	}
+	return result;
 }

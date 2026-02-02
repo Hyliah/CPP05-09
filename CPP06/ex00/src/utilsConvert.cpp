@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 21:15:39 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/21 18:46:55 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/03 00:49:42 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,33 @@
 #include <cfloat>
 #include <cstdlib>
 #include <stdlib.h>
+#include <iostream>
 
 void convertRest(const std::string &entry)
 {
     char *end;
     double value = std::strtod(entry.c_str(), &end);
 
-    // verification
     if (*end != '\0' && !(end[0] == 'f' && end[1] == '\0'))
     {
         sendWord();
         return;
     }
 
+    // NaN / inf check 
+    bool isNan = (value != value);
+    bool isInf = (value == 1.0 / 0.0 || value == -1.0 / 0.0);
+
     // CHAR
-    if (std::isnan(value) || std::isinf(value) || value < 0 || value > 127)
+    if (isNan || isInf || value < 0 || value > 127)
         std::cout << "char: impossible\n";
-    else if (!isprint(static_cast<char>(value)))
+    else if (!std::isprint(static_cast<char>(value)))
         std::cout << "char: Non displayable\n";
     else
         std::cout << "char: '" << static_cast<char>(value) << "'\n";
 
     // INT
-    if (std::isnan(value) || std::isinf(value) ||
-        value < std::numeric_limits<int>::min() ||
-        value > std::numeric_limits<int>::max())
+    if (isNan || isInf || value < INT_MIN || value > INT_MAX)
         std::cout << "int: impossible\n";
     else
         std::cout << "int: " << static_cast<int>(value) << "\n";
@@ -59,6 +61,7 @@ void convertRest(const std::string &entry)
         std::cout << ".0";
     std::cout << "\n";
 }
+
 
 
 void convertChar(int c){

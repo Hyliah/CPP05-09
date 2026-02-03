@@ -6,13 +6,17 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:30:40 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/03 01:34:41 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/03 02:07:37 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
+template <typename T>
+class Array {
+    //definir des truc ici quand j aurai fini le 01, oui je me suis trompée d exercice
+};
 #endif
 
 

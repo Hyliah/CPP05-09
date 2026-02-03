@@ -6,14 +6,47 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:16:47 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/03 01:17:38 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/03 03:09:32 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
 
 #ifndef ITER_HPP
 # define ITER_HPP
 
+// 2 functions for the const and non const
+// array and functions are generic to accept a variaty of types. 
+// length can t be generic so -> size_t bc it has to be an "entier" cant be negative and must accept a large number -> size_t
+
+template <typename T, typename F>
+void iter(T* array, const size_t length, F function){
+    for (size_t i = 0 ; i < length; i++){
+        function(array[i]);
+    }
+}
+
+template <typename T, typename F>
+void iter(const T* array, const size_t length, const F function){
+    for (size_t i = 0 ; i < length; i++){
+    function(array[i]);
+    }
+}
+
+
+// TEST MAIN FUNCTIONS :
+
+void increment(int& x) {
+    x++;
+}
+
+template <typename T>
+void print(const T& x) {
+    std::cout << x << " ";
+}
+
 #endif
+
 
 // Implement a function template iter that takes 3 parameters and returns nothing.
 

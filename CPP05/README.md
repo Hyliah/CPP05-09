@@ -13,7 +13,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Language-C++-blue.svg" />
   <img src="https://img.shields.io/badge/Standard-C++98-blueviolet.svg" />
-  <img src="https://img.shields.io/badge/Status-In Progress-violet" />
+  <img src="https://img.shields.io/badge/Status-Grade :100-violet" />
   <img src="https://img.shields.io/badge/School-42 Lausanne-pink.svg" />
 </p>
 
@@ -97,3 +97,4 @@ not to generate the project code.
 <h2>♦ Author ♦</h2>
 
 42 login: hlichten
+

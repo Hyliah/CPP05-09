@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:30:40 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/04 23:36:35 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/05 00:29:24 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,63 +25,20 @@ class Array {
     public :
 
         // CONSTRUCTORS AND DESTRUCTORS 
-        Array() : _array(NULL), _size(0){}
-
-        Array(int n) : _array(NULL), _size(n){
-            if (n > 0)
-                _array = new T[n]();
-            std::cout << "[Array] Parametric constructor called snd _size = " << _size << std::endl;
-        }
-
-        Array(const Array& other): _array(NULL), _size(other._size){
-            std::cout << "[Array] Copy constructor called (_size = " << _size << ")" << std::endl;
-            if (_size > 0){
-                _array = new T[_size]();
-                for (int i = 0; i < _size ; i++)
-                    _array[i] = other._array[i];
-            }
-        }
-        
-        Array& operator=(const Array& other){
-            std::cout << "[Array] Assignment operator called" << std::endl;
-            if (this != &other){
-                std::cout << "        Assigning array of size " << other._size << " to array of size " << _size << std::endl;
-                delete[] _array;
-                _array = NULL;
-                _size = other._size;
-
-                if (_size > 0){
-                    _array = new T[_size]();
-                    for (int i = 0; i < _size ; i++)
-                        _array[i] = other._array[i];
-                }
-            }
-            return *this;
-        }
-
-        ~Array(){
-            std::cout << "[Array] Destructor called" << std::endl;
-            delete[] _array;
-        }
+        Array();
+        Array(int n);
+        Array(const Array& other);
+        Array& operator=(const Array& other);
+        ~Array();
 
         // MEMBER FUNCTIONS
 
-        T& operator[](int i){
-            if (i < 0 || i >= _size)
-                throw indexOutOfBound();
-            return _array[i];
-        }
+        T& operator[](int i);
 
-        const T& operator[](int i) const {
-            if (i < 0 || i >= _size)
-                throw indexOutOfBound();
-            return _array[i];
-        }
-        int size( void ) const{
-            return _size;
-        }
+        const T& operator[](int i) const ;
+        int size( void ) const ;
 
-        // 
+        // EXCEPTION
         class indexOutOfBound : public std::exception {
             public : 
 				virtual const char* what() const throw(){
@@ -89,6 +46,7 @@ class Array {
             }
         };
 };
+
 #endif
 
 

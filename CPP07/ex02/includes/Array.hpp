@@ -6,11 +6,12 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:30:40 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/03 17:20:51 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:36:35 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <exception>
+#include <iostream>
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
@@ -29,10 +30,11 @@ class Array {
         Array(int n) : _array(NULL), _size(n){
             if (n > 0)
                 _array = new T[n]();
-            std::cout << "parametric constructor called snd _size = " << _size << std::endl;
+            std::cout << "[Array] Parametric constructor called snd _size = " << _size << std::endl;
         }
 
         Array(const Array& other): _array(NULL), _size(other._size){
+            std::cout << "[Array] Copy constructor called (_size = " << _size << ")" << std::endl;
             if (_size > 0){
                 _array = new T[_size]();
                 for (int i = 0; i < _size ; i++)
@@ -41,11 +43,12 @@ class Array {
         }
         
         Array& operator=(const Array& other){
+            std::cout << "[Array] Assignment operator called" << std::endl;
             if (this != &other){
-                _size = other._size;
-
+                std::cout << "        Assigning array of size " << other._size << " to array of size " << _size << std::endl;
                 delete[] _array;
                 _array = NULL;
+                _size = other._size;
 
                 if (_size > 0){
                     _array = new T[_size]();
@@ -57,6 +60,7 @@ class Array {
         }
 
         ~Array(){
+            std::cout << "[Array] Destructor called" << std::endl;
             delete[] _array;
         }
 

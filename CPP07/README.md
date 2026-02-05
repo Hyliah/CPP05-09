@@ -35,10 +35,9 @@ The goal is to understand **how to write generic, reusable code** and implement 
 
 - Function templates (`max`, `min`, `swap`)  
 - Class templates (`Array`)  
-- Deep copy and the Rule of Three (copy constructor, assignment operator, destructor)  
+- Deep copy and orthodox canonical form  
 - Exception handling with templates  
-- Memory management for generic types  
-- Using `size_t` and const-correctness
+- Memory management for generic types
 
 ---
 
@@ -46,9 +45,9 @@ The goal is to understand **how to write generic, reusable code** and implement 
 
 | Exercise | Name | Description |
 |----------|------|-------------|
-| ex00 | Templates functions | Implement generic functions like `swap`, `min`, and `max` |
-| ex01 | Templates with arrays | Implement a function template `iter` to apply a function on every element of an array |
-| ex02 | Template class Array | Implement a template class `Array<T>` with dynamic allocation, deep copy, bounds checking, and exceptions |
+| ex00 | Start with a few functions | Implement generic functions like `swap`, `min`, and `max` |
+| ex01 | Iter | Implement a function template `iter` to apply a function on every element of an array |
+| ex02 | Array | Implement a template class `Array<T>` with dynamic allocation, deep copy, bounds checking, and exceptions |
 
 ---
 

@@ -49,13 +49,13 @@ CPP05/
 │
 CPP06/
 ├── ex00/ # convert : Scalar type conversion
-├── ex01/ # Serialization (uintptr_t)
-├── ex02/ # Runtime type identification
+├── ex01/ # Serialization : Reinterpret cast
+├── ex02/ # Identify real type : Dynamic cast
 │
 CPP07/
-├── ex00/ # Template functions
-├── ex01/ # Iter template
-├── ex02/ # Template array class
+├── ex00/ # Start with a few functions : Template functions
+├── ex01/ # Iter : Iter template
+├── ex02/ # Array : Template array class
 │
 CPP08/
 ├── ex00/ # Easy find (STL algorithm)

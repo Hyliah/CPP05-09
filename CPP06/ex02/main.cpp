@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:15:38 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/23 16:10:17 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:42:22 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DynCastFunc.hpp"
+#include <cstdlib>  // srand, rand
+#include <ctime>    // time
 
 int main(){
-    std::srand(std::time(NULL)); //initialization for the random number generator 
+    srand(time(NULL)); //initialization for the random number generator 
 
     std::cout << "------ Multiple unknown Bases genereted ------" << std::endl;
     Base *base1 = generate();

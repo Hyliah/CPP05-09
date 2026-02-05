@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:23:03 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/31 02:55:04 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:18:19 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ int Bureaucrat::getGrade() const{
 }
 
 void Bureaucrat::incrementGrade(){
-	if ((_Grade - 1) < 1)
+	if ((_grade - 1) < 1)
 		throw Bureaucrat::GradeTooHighException();
-	_Grade--;
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade(){
-	if ((_Grade + 1) > 150)
+	if ((_grade + 1) > 150)
 		throw Bureaucrat::GradeTooLowException();
-	_Grade++;
+	_grade++;
 }
 
 void Bureaucrat::signForm(AForm& form){

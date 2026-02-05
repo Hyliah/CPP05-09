@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   DynCastFunc.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:53:40 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/23 16:13:28 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:44:41 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DynCastFunc.hpp"
+#include <cstdlib>  // srand, rand
+#include <ctime>    // time
 
 Base * generate(void){
-	int r = std::rand() % 3 + 1;
+	int r = rand() % 3 + 1;
 	switch (r)
 	{
 	case 1:
@@ -40,12 +42,12 @@ void identify(Base* p){
 void identify(Base& p){
 
 	try {
-        A& a = dynamic_cast<A&>(p); // if error -> catched 
+        A& a = dynamic_cast<A&>(p); // if error -> catched
         (void)a; //avoid warning
         std::cout << "A" << std::endl; // if no error -> print and leave
         return;
 	}
-	catch (...) {} //in this case we could use std::bad_cast
+	catch (...) {}
 
 	try {
         B& b = dynamic_cast<B&>(p);

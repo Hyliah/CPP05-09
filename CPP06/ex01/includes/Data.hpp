@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 00:46:39 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/22 00:47:32 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:30:37 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define DATA_HPP
 
 struct Data{
-    int value;
+    int         value;
+    std::string valstr;
 };
+
 #endif

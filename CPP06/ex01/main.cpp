@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 23:56:38 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/22 00:49:34 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:32:29 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Serializer.hpp"
-#include <cstdint>
+
+typedef unsigned long uintptr_t;
 
 int main()
 {

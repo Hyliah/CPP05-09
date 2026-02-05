@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 23:02:01 by hlichten          #+#    #+#             */
-/*   Updated: 2026/01/31 03:15:48 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/01/31 15:21:37 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main() {
     std::cout << *f3 << std::endl;
     std::cout << "---" << std::endl;
     AForm* f4 = someRandomIntern.makeForm("unknown form", "Nobody");
+    (void)f4; // if not, compiler screams
 
     std::cout << "\n===== TEST SIGNATURE ET EXECUTION =====\n";
 
@@ -74,7 +75,6 @@ int main() {
     delete f1;
     delete f2;
     delete f3;
-    delete f4; //? Y a t il besoin, voir avec Valgrind
 
     return 0;
 }

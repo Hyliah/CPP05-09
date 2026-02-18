@@ -31,8 +31,8 @@ Each module introduces new concepts and builds upon the previous ones.
 | Module | Main Concepts | Status |
 |------|---------------|--------|
 | CPP05 | Exceptions, abstract classes, inheritance, polymorphism | 100% |
-| CPP06 | Type casting, reinterpret/static/dynamic cast, serialization | Waiting for evaluation |
-| CPP07 | Templates, generic programming | Waiting for evaluation |
+| CPP06 | Type casting, reinterpret/static/dynamic cast, serialization | 100% |
+| CPP07 | Templates, generic programming | 100% |
 | CPP08 | STL containers, iterators, algorithms | WIP |
 | CPP09 | Advanced STL, containers adaptors, algorithms, real use cases | ... |
 

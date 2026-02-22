@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 22:15:33 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/22 22:09:03 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/22 22:24:51 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int main(){
     std::cout << "------ test the longest and shortest span -------" << std::endl;
     try
     {
-        std::cout << "\n -- shortest : 3 - 2 = 1 // longest : 29 - 12 = 17" << std::endl;
+        std::cout << "\n -- shortest : 3 - 2 = 1 // longest : 29 - 2 = 27" << std::endl;
         std::cout << "Span3 shortest: " << span3.shortestSpan() << std::endl;
         std::cout << "Span3 longest : " << span3.longestSpan() << std::endl;
         std::cout << "\n -- test on the big one with random numbers" << std::endl;

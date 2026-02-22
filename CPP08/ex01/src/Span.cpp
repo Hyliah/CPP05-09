@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 22:45:51 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/22 22:14:01 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/22 22:24:33 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ unsigned int Span::longestSpan() const
 
     std::vector<int> tmp = _numbers;
     std::sort(tmp.begin(), tmp.end());
-
+    
     return static_cast<unsigned int>(tmp.back() - tmp.front());
 }
+// No problem with an int max -> unsigned int is 2 time bigger than an int. So if the diff is int_max - int_min : no issues

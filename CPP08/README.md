@@ -84,3 +84,4 @@ Discussions with peers and tutors
 AI tools were used only to clarify concepts and debug small issues, not to write the project code.
 
 <h2>♦ Author ♦</h2>
+hlichten

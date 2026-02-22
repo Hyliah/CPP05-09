@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 22:45:51 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/22 21:50:24 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/22 22:14:01 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,14 @@ unsigned int Span::shortestSpan() const {
     }
     return shortest;
 }
-unsigned int Span::longestSpan() const {
+
+unsigned int Span::longestSpan() const
+{
     if (_numbers.size() < 2)
         throw std::runtime_error("Min 2 elements needed to find span");
-    
+
     std::vector<int> tmp = _numbers;
     std::sort(tmp.begin(), tmp.end());
 
-    unsigned int longest = tmp[1] - tmp[0];
-    for (size_t i = 1; i < tmp.size(); i++){
-        unsigned int diff = (tmp[i] - tmp[i - 1]);
-        if ( diff > longest)
-            longest = diff;
-    }
-    return longest;
+    return static_cast<unsigned int>(tmp.back() - tmp.front());
 }
-

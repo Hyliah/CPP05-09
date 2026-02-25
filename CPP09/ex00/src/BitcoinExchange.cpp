@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:37:11 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/25 18:12:35 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/26 00:36:59 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,16 @@ void BitcoinExchange::parseDataToMap(std::ifstream& file)
 		if (line.empty())
 			continue;
 
-		std::size_t pos = line.find(','); //find ici est de std et pas la stl (begin, end, value)
-
-		if (pos == std::string::npos)
+		std::size_t pos = line.find(',');
+		// pas de ","
+		if (pos == std::string::npos) 
 			throw std::invalid_argument("Error: bad format.");
 
 		std::string date = line.substr(0, pos);
 		std::string valueStr = line.substr(pos + 1);
+
+		if (date.empty() || valueStr.empty())
+			throw std::invalid_argument("Error: bad format.");
 
 		char* end;
 		double value = std::strtod(valueStr.c_str(), &end); //ne prendra que les caractères valide. met a jour end
@@ -58,7 +61,7 @@ void BitcoinExchange::loadData(const std::string &data){
 	std::ifstream file(data.c_str());
 	//2) checker si le fichier existe et qu il s'ouvre bien ->error
 	if (!file)
-		throw std::invalid_argument("invalid file");
+		throw std::invalid_argument("Error: could not open file.");
 	//3) commencer à parser les infos : string + double -> si pas double ou negatif -> error
 	parseDataToMap(file);
 	file.close();
@@ -67,7 +70,7 @@ void BitcoinExchange::loadData(const std::string &data){
 	for (it = _data.begin(); it != _data.end(); ++it)
 	{
 		if (!checkData(it->first))
-			throw std::invalid_argument("Invalid data");
+			throw std::invalid_argument("Error: Invalid data");
 	}
 }
 
@@ -112,29 +115,52 @@ double BitcoinExchange::dataComp(const std::string &av){
 
 	std::ifstream file(av.c_str());
 	if (!file)
-		throw std::invalid_argument("invalid file");
+		throw std::invalid_argument("Error: could not open file.");
 
 	std::string line;
 	std::getline(file, line); // skip header
 
 	while (std::getline(file, line))
 	{
-		std::string date = line.substr(0, 10); // YYYY-MM-DD
-
-		double value = std::strtod(line.substr(13).c_str(), NULL);
-
-		if (line[10] != ' ' || line[12] != ' ' || line[11] != '|')
+		std::size_t pos = line.find('|'); //find ici est de std et pas la stl (begin, end, value)
+		if (pos == std::string::npos){
 			std::cout << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+
+		std::string date = line.substr(0, pos - 1);
+		std::string valueStr = line.substr(pos + 2);
+
+		if (date.empty() || valueStr.empty()){
+			std::cout << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+
+		char* end;
+		double value = std::strtod(valueStr.c_str(), &end); //ne prendra que les caractères valide. met a jour end
+		if (*end != '\0'){
+			std::cout << "Error: bad input" << line << std::endl;
+			continue;
+		}
+
+		if (line[10] != ' ' || line[12] != ' '){
+			std::cout << "Error: bad input => " << line << std::endl;
+			continue;
+		}
 
 		if (!checkData(date)){
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue;
 		}
-		if (value < 0 || value > 1000){
-			std::cout << "Error: invalid value => " << line << std::endl;
+		if (value > 1000){
+			std::cout << "Error: too large a number." << std::endl;
 			continue;
 		}
-
+		if (value < 0){
+			std::cout << "Error: not a positive number." << std::endl;
+			continue;
+		}
+		
 		std::map<std::string, double>::iterator it = _data.lower_bound(date); //renvoie >= date
 		if (it == _data.end()) // date > last date DB, du coup on prend la dernière date
 			--it;

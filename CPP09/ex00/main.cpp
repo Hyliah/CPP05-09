@@ -6,18 +6,25 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:37:33 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/25 18:07:27 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/26 00:31:52 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 int main(int ac, char **av){
-    if (ac != 2)
+    if (ac != 2){
+        std::cerr << "Error: could not open file." << std::endl;
         return 1; //mettre message d erreur
+    }
     BitcoinExchange btc;
-    btc.loadData("data.csv");
-    btc.dataComp(av[1]);
+    try {
+        btc.loadData("data.csv");
+        btc.dataComp(av[1]);
+    }
+    catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	} 
     return 0;
 }
 

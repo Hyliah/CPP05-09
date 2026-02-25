@@ -6,17 +6,18 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:37:33 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/24 02:14:11 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/25 18:07:27 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 int main(int ac, char **av){
-
     if (ac != 2)
         return 1; //mettre message d erreur
-    
+    BitcoinExchange btc;
+    btc.loadData("data.csv");
+    btc.dataComp(av[1]);
     return 0;
 }
 

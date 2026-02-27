@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:33:09 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/23 15:55:08 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/27 21:34:37 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,23 @@
 
 int main (int ac, char **av){
     
+    PmergeMe pmm;
+
+    try {
+
+    }
+    catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	} 
 }
+
+/*
+    1. que des int sinon on throw
+    diviser en 2 int un gros et un petit, trier les gros et laisser chill les petits
+    comprendre mieux le projet
+    faire le projet 
+    voila c est tout pour moi 
+*/
 /*
 
 You must create a program with these constraints:

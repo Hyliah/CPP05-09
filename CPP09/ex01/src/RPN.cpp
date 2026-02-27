@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:28:54 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/26 16:40:17 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/27 18:17:18 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ void RPN::calValues(const std::string& val)
             continue;
 
         if (std::isdigit(val[i]))
-            _values.push(val[i] - '0');
+            _values.push_back(val[i] - '0');
 
         else if (val[i] == '+' || val[i] == '-' || val[i] == '*' || val[i] == '/'){
             if (_values.size() < 2)
                 throw std::invalid_argument("Error");
 
-            int b = _values.top();
-            _values.pop();
-            int a = _values.top();
-            _values.pop();
+            int b = _values.back();
+            _values.pop_back();
+            int a = _values.back();
+            _values.pop_back();
 
             int result;
 
@@ -56,7 +56,7 @@ void RPN::calValues(const std::string& val)
                 if (b == 0) throw std::invalid_argument("Error");
                 result = a / b;
             }
-            _values.push(result);
+            _values.push_back(result);
         }
         else
             throw std::invalid_argument("Error");
@@ -64,16 +64,8 @@ void RPN::calValues(const std::string& val)
 
     if (_values.size() != 1)
         throw std::invalid_argument("Error");
-    std::cout << _values.top() << std::endl;
+    std::cout << _values.back() << std::endl;
 }
-
-
-// s.push(n);
-// s.pop();
-// int x = s.top();
-// s.size();
-// s.empty();
-
 
 /*
 

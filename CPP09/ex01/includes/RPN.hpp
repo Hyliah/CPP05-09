@@ -6,16 +6,18 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:28:58 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/26 16:01:30 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/02/27 18:00:27 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack>
+#include <deque>
 #include <iostream>
 
 class RPN{
 	private :
-		std::stack<int> _values;
+		//std::stack<int> _values;
+		std::deque<int> _values;
 		
 	public :
 		RPN();

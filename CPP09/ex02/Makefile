@@ -7,7 +7,7 @@ INCLUDES    = -I includes
 
 OBJ_DIR     = obj
 
-SRC         = main.cpp src/ PmergeMe.cpp
+SRC         = main.cpp src/PmergeMe.cpp
 
 OBJ         = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 

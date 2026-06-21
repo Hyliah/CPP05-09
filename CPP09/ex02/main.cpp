@@ -6,15 +6,16 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:33:09 by hlichten          #+#    #+#             */
-/*   Updated: 2026/03/01 19:40:11 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/06/03 03:20:15 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include " PmergeMe.hpp"
+#include "PmergeMe.hpp"
 #include <cstdlib>
 
-void parseInput(int ac, char **av, std::vector<int>& input);
+void parseInput(int ac, char **av, std::vector<int>& inputVector, std::list<int>& inputList);
 void printVect(std::vector<int>& input);
+void printList(std::list<int>& input);
 
 int main (int ac, char **av){
 	
@@ -23,39 +24,28 @@ int main (int ac, char **av){
 		return 1;
 	}
 
-	PmergeMe pmm;
+	std::vector<int> inputVector;
+	std::list<int> inputList;
 
-	// mettre la liste dans un vector temporaire. faire les verif au fur et a mesure (int, entre 0 et int max, pas de doublons)
-	std::vector<int> input;
-	try { parseInput(ac, av, input);}
-	catch (std::exception &e) {std::cerr << e.what() << std::endl;}
+	try {parseInput(ac, av, inputVector, inputList);}
+	catch (std::exception &e) {std::cerr << e.what() << std::endl; return 1;}
 
-	// afficher la liste avant le début des travaux. La sauver dans un vector a cahque verif. Si verif good on print
-	// Before: 3 5 9 7 4
+	size_t size = inputVector.size();
+
+	PmergeMe pmm(inputVector, inputList);
+	
 	std::cout << "Before: ";
-	printVect(input);
+	printVect(inputVector);
 
-	// faire les 2 sorting
-	//		faire un tree avec les plus grand et insert les plus petits par la suite
-	// print un des sorting
-	// After: 3 4 5 7 9
-	// afficher temps 1
-	//.        Time to process a range of 5 elements with std::list : 0.00031 us
-	// afficher temps 2
-	//.        Time to process a range of 5 elements with std::vector : 0.00014 us
+	std::cout << "After: ";
+	printVect(pmm.getVector());
 
+	//test sur List au besoin
+	//std::cout << "After: ";
+	//printList(pmm.getList());
 
-	// idée de boucle recursive : 
-	/*
-		void sortRec()
-	*/
-	try {
-
-	}
-	catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
-	}
-	return 0;
+	std::cout << "Time to process a range of " << size << " with std::vector : " << pmm.getTimeVect() << " us" << std::endl;
+	std::cout << "Time to process a range of " << size << " with std::list : " << pmm.getTimeList() << " us" << std::endl;
 }
 
 void printVect(std::vector<int>& input){
@@ -67,8 +57,19 @@ void printVect(std::vector<int>& input){
 	}
 	std::cout << std::endl;
 }
+void printList(std::list<int>& input){
+	std::list<int>::const_iterator it;
 
-void parseInput(int ac, char **av, std::vector<int>& input){
+	for (it = input.begin(); it != input.end(); ++it)
+	{
+		std::cout << *it;
+		if (it!= input.end())
+			std::cout << " ";
+	}
+	std::cout << std::endl;
+}
+
+void parseInput(int ac, char **av, std::vector<int>& inputVector, std::list<int>& inputList){
 	int i = 1;
 
 	while (i < ac){
@@ -81,24 +82,18 @@ void parseInput(int ac, char **av, std::vector<int>& input){
 			throw std::invalid_argument("Error");
 		int value = static_cast<int>(nb);
 
-		//veriicateur de doublons
-        for (size_t j = 0; j < input.size(); ++j)
+        for (size_t j = 0; j < inputVector.size(); ++j)
         {
-            if (input[j] == value)
+            if (inputVector[j] == value)
                 throw std::invalid_argument("Error");
         }
 
-        input.push_back(value);
+        inputVector.push_back(value);
+		inputList.push_back(value);
 		i++;
 	}
 }
 
-/*
-	diviser en 2 int un gros et un petit, trier les gros et laisser chill les petits
-	comprendre mieux le projet
-	faire le projet 
-	voila c est tout pour moi 
-*/
 /*
 
 You must create a program with these constraints:

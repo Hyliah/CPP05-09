@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:37:11 by hlichten          #+#    #+#             */
-/*   Updated: 2026/07/09 02:32:23 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:44:23 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <exception>
+#include <cstdlib>
 #include <map>
 #include <string>
 #include <fstream>
@@ -25,35 +26,7 @@ BitcoinExchange& BitcoinExchange::operator= (const BitcoinExchange &other){
 }
 BitcoinExchange::~BitcoinExchange(){}
 
-void BitcoinExchange::parseDataToMap(std::ifstream& file)
-{
-	std::string line;
-	std::getline(file, line); // skip header
-
-	while (std::getline(file, line)) {
-		if (line.empty())
-			continue;
-
-		std::size_t pos = line.find(',');
-		// no ","
-		if (pos == std::string::npos) 
-			throw std::invalid_argument("Error: bad format.");
-
-		std::string date = line.substr(0, pos);
-		std::string valueStr = line.substr(pos + 1);
-
-		if (date.empty() || valueStr.empty())
-			throw std::invalid_argument("Error: bad format.");
-
-		char* end;
-		double value = std::strtod(valueStr.c_str(), &end); //will only take valide chaar. update end
-
-		if (*end != '\0' || value < 0) // if non valid char, wont be at the end
-			throw std::invalid_argument("Error: invalid number.");
-
-		_data.insert(std::make_pair(date, value));
-	}
-}
+//-------------
 
 void BitcoinExchange::loadData(const std::string &data){
 	std::ifstream file(data.c_str());
@@ -69,6 +42,35 @@ void BitcoinExchange::loadData(const std::string &data){
 	{
 		if (!checkData(it->first))
 			throw std::invalid_argument("Error: Invalid data");
+	}
+}
+
+void BitcoinExchange::parseDataToMap(std::ifstream& file)
+{
+	std::string line;
+	std::getline(file, line);
+
+	while (std::getline(file, line)) {
+		if (line.empty())
+			continue;
+
+		std::size_t pos = line.find(',');
+		if (pos == std::string::npos) 
+			throw std::invalid_argument("Error: bad format.");
+
+		std::string date = line.substr(0, pos);
+		std::string valueStr = line.substr(pos + 1);
+
+		if (date.empty() || valueStr.empty())
+			throw std::invalid_argument("Error: bad format.");
+
+		char* end;
+		double value = std::strtod(valueStr.c_str(), &end);
+
+		if (*end != '\0' || value < 0)
+			throw std::invalid_argument("Error: invalid number.");
+
+		_data.insert(std::make_pair(date, value));
 	}
 }
 
@@ -103,17 +105,21 @@ bool BitcoinExchange::checkData(const std::string &date){
 	return true;
 }
 
+
+// ------------------
+
+
 double BitcoinExchange::dataComp(const std::string &av){
 	std::ifstream file(av.c_str());
 	if (!file)
 		throw std::invalid_argument("Error: could not open file.");
 
 	std::string line;
-	std::getline(file, line); // skip header
+	std::getline(file, line);
 
 	while (std::getline(file, line))
 	{
-		std::size_t pos = line.find('|'); //find ici est de std et pas la stl (begin, end, value)
+		std::size_t pos = line.find('|');
 		if (pos == std::string::npos){
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue;
@@ -128,9 +134,9 @@ double BitcoinExchange::dataComp(const std::string &av){
 		}
 
 		char* end;
-		double value = std::strtod(valueStr.c_str(), &end); //ne prendra que les caractères valide. met a jour end
+		double value = std::strtod(valueStr.c_str(), &end);
 		if (*end != '\0') {
-			std::cout << "Error: bad input" << line << std::endl;
+			std::cout << "Error: bad input => " << line << std::endl;
 			continue;
 		}
 
@@ -148,17 +154,19 @@ double BitcoinExchange::dataComp(const std::string &av){
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue;
 		}
+
 		if (value > 1000) {
 			std::cout << "Error: too large a number." << std::endl;
 			continue;
 		}
+		
 		if (value < 0) {
 			std::cout << "Error: not a positive number." << std::endl;
 			continue;
 		}
 		
 		std::map<std::string, double>::iterator it = _data.lower_bound(date); 
-		if (it == _data.end()) // date > last date DB, du coup on prend la dernière date
+		if (it == _data.end()) // if date > last date DB, take last date
 			--it;
 	
 		else if (it->first != date) { // si pas exactement la date -> la précédente

@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 23:32:53 by hlichten          #+#    #+#             */
-/*   Updated: 2026/07/09 01:59:44 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 00:37:44 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ std::list<int> PmergeMe::buildSmallList(std::list<int>& big, std::list<std::pair
 		for (std::list<std::pair<int, int> >::iterator pit = pairs.begin(); pit != pairs.end(); ++pit) {
 			if (pit->second == *bit) {
 				small.push_back(pit->first);
-				pairs.erase(pit);
 				break;
 			}
 		}
@@ -90,6 +89,8 @@ void PmergeMe::insertJacobsthalList(std::list<int>& mainChain, std::list<int>& s
 
     for (size_t k = 0; k < order.size(); ++k) {
 		size_t idx = order[k];
+		if (idx == 0)
+            continue;
 
 		std::list<int>::iterator sIt = small.begin();
 		std::advance(sIt, idx);

@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 23:34:05 by hlichten          #+#    #+#             */
-/*   Updated: 2026/07/09 01:58:09 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 00:38:06 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ void PmergeMe::insertBeforePartnerVect(std::vector<int>& mainChain, int small, i
 
 std::vector<int> PmergeMe::buildSmallVector(std::vector<int>& big, std::vector<std::pair<int, int> >& pairs) {
     std::vector<int> small;
+	small.reserve(big.size());
     
     for (size_t i = 0; i < big.size(); i++) {
 		for (size_t j = 0; j < pairs.size(); j++) {
 			if (pairs[j].second == big[i]) {
 				small.push_back(pairs[j].first);
-				pairs.erase(pairs.begin() + j);
 				break;
 			}
 		}
@@ -88,9 +88,8 @@ void PmergeMe::insertJacobsthalVector(std::vector<int>& mainChain, std::vector<i
     std::vector<size_t> order = jacobsthalIndexes(small.size());
 	for (size_t k = 0; k < order.size(); ++k) {
 		size_t idx = order[k];
-		int sm = small[idx];
-		int la = big[idx];
-
+		if (idx == 0)
+            continue;
 		insertBeforePartnerVect(mainChain, small[idx], big[idx] );
 	}
 }

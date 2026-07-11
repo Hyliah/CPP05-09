@@ -6,7 +6,7 @@
 /*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 23:38:56 by hlichten          #+#    #+#             */
-/*   Updated: 2026/07/09 01:34:23 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 02:57:59 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ std::vector<size_t> PmergeMe::jacobsthalIndexes(size_t n) {
 
 	for (size_t k = 1; k < jac.size(); ++k) {
 		size_t current_jac = jac[k];
-		size_t end = (current_jac < n) ? current_jac : n - 1;
-
+		size_t end;
+		if (current_jac < n)
+			end = current_jac;
+		else
+			end = n - 1;
+			
 		for (size_t i = end; i > prev_jac; --i) {
 			order.push_back(i);
 		}

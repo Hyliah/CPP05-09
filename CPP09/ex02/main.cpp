@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:33:09 by hlichten          #+#    #+#             */
-/*   Updated: 2026/07/08 23:49:44 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:23:06 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <cstdlib>
+#include <climits>
 
 void parseInput(int ac, char **av, std::vector<int>& inputVector, std::list<int>& inputList);
 void printVect(std::vector<int>& input);
-void printList(std::list<int>& input);
 
 int main (int ac, char **av){
 	if (ac < 2){

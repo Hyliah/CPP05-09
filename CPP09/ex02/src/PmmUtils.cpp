@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmmUtils.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 23:38:56 by hlichten          #+#    #+#             */
-/*   Updated: 2026/07/11 02:57:59 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:14:30 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,52 +52,11 @@ double PmergeMe::getTimeMicro() {
 	return (tv.tv_sec * 1000000.0 + tv.tv_usec);
 }
 
-void PmergeMe::writeLog(const std::vector<int>& input){
-	std::ofstream log("log.txt");
-
-	if (!log.is_open())
-		return ;
-
-	log << "\nBEFORE" << std::endl;
-	printVector(log, input);
-
-	log << "\nAFTER" << std::endl;
-	log << "Vector :" << std::endl;
-	printVector(log, _vect);
-
-	log << "List :" << std::endl;
-	printList(log, _li);
-
-	log << "\nTIMES" << std::endl;
-	log << "Vector : " << _timeVect << " us" << std::endl;
-	log << "List   : " << _timeList << " us" << std::endl;
-
-	log << "\nSTATISTICS" << std::endl;
-	log << "Vector Comparisons : " << _vectComparisons << std::endl;
-	log << "List Comparisons : " << _listComparisons << std::endl;
-	log << "Ford Johnson comparisons for " << _vect.size() << " : " << fordJohnsonComparisons(_vect.size()) << std::endl;
-
-    log << "\nTESTS" << std::endl;
-    if (isSortedVector(_vect)) log << "Vector is nicely sorted" << std::endl;
-    else log << "Issues with the vector's sorting" << std::endl;
-
-    if (isSortedList(_li)) log << "List is nicely sorted" << std::endl;
-    else log << "Issues with the list's sorting" << std::endl;
-    
-    if (sameSizeVector(input, _vect)) log << "Vector has the same size as the input" << std::endl;
-    else log << "Vector is not the same size as the input" << std::endl;
-	
-    if (sameSizeList(input, _li)) log << "List has the same size as the input" << std::endl;
-    else log << "List is not the same size as the input" << std::endl;
-    
-    log.close();
-}
-
 size_t PmergeMe::fordJohnsonComparisons(size_t n) {
     size_t  res = 0;
     double  value;
 
-    for (int k = 1; k <= n; ++k) {
+    for (size_t k = 1; k <= n; ++k) {
         value = (3.0 / 4.0) * k;
         res += static_cast<size_t>(ceil(log2(value)));
     }
@@ -138,4 +97,46 @@ bool PmergeMe::isSortedList(const std::list<int>& li) {
 
 bool PmergeMe::sameSizeList( const std::vector<int>& input, const std::list<int>& output) {
 	return input.size() == output.size();
+}
+
+
+void PmergeMe::writeLog(const std::vector<int>& input){
+	std::ofstream log("log.txt");
+
+	if (!log.is_open())
+		return ;
+
+	log << "\nBEFORE" << std::endl;
+	printVector(log, input);
+
+	log << "\nAFTER" << std::endl;
+	log << "Vector :" << std::endl;
+	printVector(log, _vect);
+
+	log << "List :" << std::endl;
+	printList(log, _li);
+
+	log << "\nTIMES" << std::endl;
+	log << "Vector : " << _timeVect << " us" << std::endl;
+	log << "List   : " << _timeList << " us" << std::endl;
+
+	log << "\nSTATISTICS" << std::endl;
+	log << "Vector Comparisons : " << _vectComparisons << std::endl;
+	log << "List Comparisons : " << _listComparisons << std::endl;
+	log << "Ford Johnson comparisons for " << _vect.size() << " : " << fordJohnsonComparisons(_vect.size()) << std::endl;
+
+    log << "\nTESTS" << std::endl;
+    if (isSortedVector(_vect)) log << "Vector is nicely sorted" << std::endl;
+    else log << "Issues with the vector's sorting" << std::endl;
+
+    if (isSortedList(_li)) log << "List is nicely sorted" << std::endl;
+    else log << "Issues with the list's sorting" << std::endl;
+    
+    if (sameSizeVector(input, _vect)) log << "Vector has the same size as the input" << std::endl;
+    else log << "Vector is not the same size as the input" << std::endl;
+	
+    if (sameSizeList(input, _li)) log << "List has the same size as the input" << std::endl;
+    else log << "List is not the same size as the input" << std::endl;
+    
+    log.close();
 }

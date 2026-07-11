@@ -112,7 +112,7 @@ This module covers:
 
 - STL containers:
   - `map`
-  - `stack`
+  - `list`
   - `vector`
   - `deque`
 
@@ -184,6 +184,10 @@ Improving documentation
 CPP - Homemade HelpCenter:
 
 <a href="https://www.figma.com/board/YLwrD2ZJmG2QEYdvLQ85o0/CPP_help-center?node-id=0-1&t=rvW7b2dDy1z6ygfJ-1"> CPP HelpCenter </a>
+
+<p>[PMergeMe diagram]</p>
+<img src="ASSETS/exception_classes.png" width="90%" alt="ex02 : PMergeMe diagram">
+
 <h2>♦ Author ♦</h2>
 
 hlichten

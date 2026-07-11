@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:28:58 by hlichten          #+#    #+#             */
-/*   Updated: 2026/02/27 18:00:27 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:22:25 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,3 @@ class RPN{
 		
 		void calValues(const std::string& val);
 };
-
-// s.push(10);
-// s.pop();
-// int x = s.top();
-// s.size();
-// s.empty();

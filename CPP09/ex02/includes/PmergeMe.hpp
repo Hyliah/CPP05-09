@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlichten <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: hlichten <hlichten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:33:15 by hlichten          #+#    #+#             */
-/*   Updated: 2026/07/09 01:56:31 by hlichten         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:10:57 by hlichten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <algorithm>
 #include <cstdlib>
 #include <sys/time.h>
 #include <utility>

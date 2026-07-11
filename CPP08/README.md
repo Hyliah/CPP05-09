@@ -1,5 +1,5 @@
 <!-- README.md -->
-<p>This project has been created as part of the 42 curriculum by hlichten.</p>
+<i>This project has been created as part of the 42 curriculum by hlichten.</i>
 
 <h1 align="center">
   CPP08
@@ -13,7 +13,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Language-C++-blue.svg" />
   <img src="https://img.shields.io/badge/Standard-C++98-blueviolet.svg" />
-  <img src="https://img.shields.io/badge/Status-In Progress-violet" />
+  <img src="https://img.shields.io/badge/Status-Completed-success" />
   <img src="https://img.shields.io/badge/School-42 Lausanne-pink.svg" />
 </p>
 
